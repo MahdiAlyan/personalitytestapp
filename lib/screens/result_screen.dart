@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../models/personality.dart';
 
 class ResultScreen extends StatelessWidget {
   final String resultText;
@@ -16,12 +17,16 @@ class ResultScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+
           Text(
-            resultText,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            personality[PersonalityType.values.firstWhere((type) => resultText.contains(type.name))] ??
+            "Unknown Personality Type",
+            style: const TextStyle(fontSize: 18),
             textAlign: TextAlign.center,
           ),
+
           const SizedBox(height: 20),
+
           ElevatedButton(
             onPressed: onRestart,
             child: const Text('Restart Test'),

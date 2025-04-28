@@ -17,6 +17,7 @@ class PersonalityTestApp extends StatefulWidget {
 }
 
 class _PersonalityTestAppState extends State<PersonalityTestApp> {
+  
   int _currentQuestionIndex = 0;
   Map<String, int> _personalityScores = {};
 
@@ -57,8 +58,9 @@ class _PersonalityTestAppState extends State<PersonalityTestApp> {
     }
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text('Personality Test')),
+        backgroundColor: Color.fromARGB(255, 0, 255, 157),
         body: screen,
       ),
     );

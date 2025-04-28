@@ -13,22 +13,34 @@ class QuestionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          question.questionText,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 20),
-        ...question.answers.map((answer) {
-          return ElevatedButton(
-            onPressed: () => onAnswerSelected(answer.personality),
-            child: Text(answer.text),
-          );
-        }),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(25.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            question.questionText,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 20),
+          ...question.answers.map((answer) {
+            return ElevatedButton(
+              onPressed: () => onAnswerSelected(answer.personality),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  backgroundColor: const Color.fromARGB(255, 0, 247, 255),
+                ),
+              child: Text(
+                answer.text,
+                style: const TextStyle(fontSize: 18, color: Colors.black),
+              ),
+            );
+          })
+      ],)
     );
   }
 }
